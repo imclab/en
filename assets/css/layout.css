@@ -10,7 +10,7 @@ body{
 .jumbotron {
   margin: 50px 0;
   text-align: center;
-}
+  }
 .jumbotron h1 {
   font-size: 70px;
   line-height: 1;
@@ -54,8 +54,8 @@ div#use_cases{
 .page-content-wrapper{
   min-height: 100%;
   height: auto !important;
-  width: auto !important;
-  margin: 0px auto 0px; 
+  min-width: 1000px;
+  margin: 0px auto; 
   background-color:#f6f6f6;
 }
 
@@ -66,7 +66,7 @@ div#use_cases{
 .header {
     /* margin-bottom: 20px; */
     display: block;
-
+    margin:0 auto;
     background-color: #252525;
     position: relative;
     z-index: 2;
