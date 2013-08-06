@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+<div class="row-fluid" id="main">
+
+		   <div id="content" class="span9">
+          <div class="article-content-wrapper">
+           <ul>
+             {% for bpost in site.categories.blog limit:5 %}
+              <li><a href="{{ bpost.url}}" title="{{bpost.title}}" target="_blank">{{bpost.title}}</a></li>
+             {% endfor %}
+            </ul>	
+          </div>          
+       </div>
+       
+       <div id="sidebar" class="span3">
+        sidebar
+       </div>
+
+</div>

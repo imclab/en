@@ -1,0 +1,5 @@
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title
+pygments: true
+
+base_url: /en

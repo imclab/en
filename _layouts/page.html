@@ -1,0 +1,49 @@
+---
+layout: default
+---
+<div class="container">  
+<div class="row-fluid" id="main">
+   <div class="span12">
+    <div class="row-fluid">
+		   <div id="content" class="span9">
+          <div class="article">
+           {{ content }}
+          </div>
+          
+          <div class="page-navigation clearDiv">
+			
+	        </div>
+          
+          
+          <div class="comments">
+          
+          </div>
+          
+       </div>
+       <div id="sidebar" class="span3">
+        sidebar
+       </div>
+    </div>  
+    </div>  
+</div>
+</div><!-- /.container -->
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+
+		$.getJSON("{{site.base_url}}/json/blog.json",function(data){
+			var content="<ul>";
+			$.each(data,function(i,item){
+				if(item.url=="{{site.base_url}}{{page.url}}"){
+					if(data[i+1])
+						content += "<li class='fn-left'><a href='"+ data[i+1].url + "' title='前一篇：" + data[i+1].title +"'>&laquo;前一篇</a></li>";
+					if(data[i-1])
+						content += "<li class='fn-right'><a href='"+ data[i-1].url + "' title='后一篇：" + data[i-1].title +"'>&raquo;后一篇</a></li>";
+				}
+			});			
+			content += "</ul>";			
+			$(".page-navigation").html(content);
+		});
+		
+	});
+</script>

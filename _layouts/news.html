@@ -1,0 +1,63 @@
+---
+layout: default
+---
+<div class="container">  
+<div class="row-fluid" id="main">
+   <div class="span12">
+    <div class="row-fluid">
+		   <div id="content" class="span9">
+         <div class="article-content-wrapper">
+          <div class="page-navigation clearDiv">
+			
+	        </div>
+          <div class="title">
+            <h2>{{ page.title }}</h2>
+            {% if page.date %}
+            <small>{{ page.date | date: "%Y 年 %m 月 %d 日" }} | 分类于
+            {% else %}
+            <small>某年 某月 某日 | 分类于
+            {% endif %}
+                 <!-- END tags here -->
+            </small>
+          </div><!-- END title -->
+          <div class="article">
+           {{ content }}
+          </div>
+          
+          <div class="page-navigation clearDiv">
+			
+	        </div>
+          
+          
+          <div class="comments">
+          
+          </div>
+          </div>
+       </div>
+       <div id="sidebar" class="span3">
+        
+       </div>
+    </div>  
+    </div>  
+</div>
+</div><!-- /.container -->
+   
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$.getJSON("{{site.base_url}}/json/news.json",function(data){
+			var content="";
+			$.each(data,function(i,item){
+				if(item.url=="{{site.base_url}}{{page.url}}"){
+					if(data[i+1]){
+						content += "<a class='pull-left' href='"+ data[i+1].url + "' title='前一篇：" + data[i+1].title +"'>&laquo;前一篇</a>";
+					}
+          content += "<a href='{{site.base_url}}/news'>所有文章</a>";
+          if(data[i-1]){
+						content += "<a class='pull-right' href='"+ data[i-1].url + "' title='后一篇：" + data[i-1].title +"'>&raquo;后一篇</a>";
+          } 
+        }
+			});			
+			$(".page-navigation").html(content);
+		});		
+	});
+</script>
